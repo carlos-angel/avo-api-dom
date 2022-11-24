@@ -13,6 +13,13 @@ function formatPrice(price) {
 const app = document.querySelector('div#app');
 app.className = 'mt-10 grid grid-cols-2 gap-2';
 
+const action = (event) => {
+  const isTitle = event.target.nodeName === 'H2';
+  isTitle && window.alert(`has dado click en ${event.target.textContent}`);
+};
+
+app.addEventListener('click', action);
+
 window
   .fetch(URL)
   .then((resp) => resp.json())
